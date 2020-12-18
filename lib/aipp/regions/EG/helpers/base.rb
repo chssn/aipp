@@ -1,5 +1,5 @@
 module AIPP
-  module LF
+  module EG
     module Helpers
       module Base
 
@@ -86,18 +86,18 @@ module AIPP
 
         # Templates
 
-        def organisation_lf
-          unless cache.organisation_lf
-            cache.organisation_lf = AIXM.organisation(
+        def organisation_gb
+          unless cache.organisation_gb
+            cache.organisation_gb = AIXM.organisation(
               source: source(position: 1, aip_file: "GEN-3.1"),
-              name: 'FRANCE',
+              name: 'UNITED KINGDOM',
               type: 'S'
             ).tap do |organisation|
-              organisation.id = 'LF'
+              organisation.id = 'EG'
             end
-            add cache.organisation_lf
+            add cache.organisation_gb
           end
-          cache.organisation_lf
+          cache.organisation_gb
         end
 
         # Transformations

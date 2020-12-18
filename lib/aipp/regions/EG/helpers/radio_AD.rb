@@ -1,5 +1,5 @@
 module AIPP
-  module LF
+  module EG
     module Helpers
       module RadioAD
 
@@ -80,7 +80,7 @@ module AIPP
             unless unit
               unit = AIXM.unit(
                 source: @source,   # TODO
-                organisation: organisation_lf,   # TODO: not yet implemented
+                organisation: organisation_gb,   # TODO: not yet implemented
                 type: type,
                 name: airport.id,
                 class: :icao   # TODO: verify whether all units are ICAO

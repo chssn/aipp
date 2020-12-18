@@ -1,10 +1,10 @@
 module AIPP
-  module LF
+  module EG
 
     # D/P/R Zones
     class ENR51 < AIP
 
-      include AIPP::LF::Helpers::Base
+      include AIPP::EG::Helpers::Base
 
       # Map sections to whether to parse them
       SECTIONS = {

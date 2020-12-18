@@ -1,11 +1,11 @@
 module AIPP
-  module LF
+  module EG
 
     # ENR Navaids
     class ENR41 < AIP
 
-      include AIPP::LF::Helpers::Base
-      include AIPP::LF::Helpers::NavigationalAid
+      include AIPP::EG::Helpers::Base
+      include AIPP::EG::Helpers::NavigationalAid
 
       def parse
         prepare(html: read).css('tbody').each do |tbody|

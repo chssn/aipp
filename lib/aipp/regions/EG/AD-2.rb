@@ -1,12 +1,12 @@
 module AIPP
-  module LF
+  module EG
 
     # Airports (IFR capable) and their CTR, AD navigational aids etc
     class AD2 < AIP
 
-      include AIPP::LF::Helpers::Base
-      include AIPP::LF::Helpers::NavigationalAid
-      include AIPP::LF::Helpers::RadioAD
+      include AIPP::EG::Helpers::Base
+      include AIPP::EG::Helpers::NavigationalAid
+      include AIPP::EG::Helpers::RadioAD
       using AIXM::Refinements
 
       # Map source types to type and optional local type
@@ -18,21 +18,21 @@ module AIPP
       }.freeze
 
       # Airports without VAC (e.g. military installations)
-      NO_VAC = %w(LFOA LFBC LFQE LFOE LFSX LFBM LFSO LFMO LFQP LFSI LFKS LFPV).freeze
+      # NO_VAC = %w(LFOA LFBC LFQE LFOE LFSX LFBM LFSO LFMO LFQP LFSI LFKS LFPV).freeze
 
       # Airports without VFR reporting points
       # TODO: designated points on map but no list (LFLD LFSN LFBS) or no AD info (LFRL)
-      NO_DESIGNATED_POINTS = %w(LFAB LFAC LFAV LFAY LFBK LFBN LFBX LFCC LFCI LFCK LFCY LFDH LFDJ LFDN LFEC LFFK LFEV LFEY LFGA LFHP LFHV LFHY LFJR LFJY LFLA LFLH LFLO LFLV LFLW LFMQ LFMQ LFNB LFOH LFOQ LFOU LFOV LFOZ LFPO LFQA LFQB LFQG LFQM LFRC LFRI LFRM LFRT LFRU LFSD LFSG LFSM LFLD LFSN LFBS LFRL).freeze
+      # NO_DESIGNATED_POINTS = %w(LFAB LFAC LFAV LFAY LFBK LFBN LFBX LFCC LFCI LFCK LFCY LFDH LFDJ LFDN LFEC LFFK LFEV LFEY LFGA LFHP LFHV LFHY LFJR LFJY LFLA LFLH LFLO LFLV LFLW LFMQ LFMQ LFNB LFOH LFOQ LFOU LFOV LFOZ LFPO LFQA LFQB LFQG LFQM LFRC LFRI LFRM LFRT LFRU LFSD LFSG LFSM LFLD LFSN LFBS LFRL).freeze
 
       # Map synonyms for +correlate+
       SYNONYMS = [
-        'nord', 'north',
-        'est', 'east',
-        'sud', 'south',
-        'ouest', 'west',
+        'North', 'north',
+        'East', 'east',
+        'South', 'south',
+        'West', 'west',
         'inst', 'instruction',
-        'junction', 'intersection',
-        'harbour', 'port',
+        'intersection', 'intersection',
+        'port', 'port',
         'mouth', 'embouchure',
         'tower', 'chateau'
       ].freeze

@@ -1,10 +1,10 @@
 module AIPP
-  module LF
+  module EG
 
     # FIR, TMA etc
     class ENR21 < AIP
 
-      include AIPP::LF::Helpers::Base
+      include AIPP::EG::Helpers::Base
 
       # Airspaces by type to be ignored
       NAME_BLACKLIST_RE = {
@@ -25,11 +25,8 @@ module AIPP
 
       # Map airspace "<type> <name>" to location indicator
       LOCATION_INDICATORS = {
-        'FIR BORDEAUX' => 'LFBB',
-        'FIR BREST' => 'LFRR',
-        'FIR MARSEILLE' => 'LFMM',
-        'FIR PARIS' => 'LFFF',
-        'FIR REIMS' => 'LFRR'
+        'LONDON FIR' => 'London Control',
+        'SCOTTISH FIR' => 'Scotland Control'
       }.freeze
 
       # Fix incomplete SIV service columns
@@ -147,7 +144,7 @@ module AIPP
           when /.*(?<!info|app|\d{3}|\))$/i   # unit
             unit = AIXM.unit(
               source: source(position: td.line),
-              organisation: organisation_lf,   # TODO: not yet implemented
+              organisation: organisation_gb,   # TODO: not yet implemented
               name: line,
               type: :flight_information_centre,
               class: :icao

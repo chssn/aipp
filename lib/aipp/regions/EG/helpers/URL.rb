@@ -12,7 +12,7 @@ module AIPP
               $1
             ]
           else
-            "https://www.sia.aviation-civile.gouv.fr/dvd/eAIP_%s/FRANCE/AIRAC-%s/html/eAIP/FR-%s-fr-FR.html" % [
+            "https://www.aurora.nats.co.uk/htmlAIP/Publications/%s-AIRAC/html/index-en-GB.html" % [
               options[:airac].date.strftime('%d_%^b_%Y'),   # 04_JAN_2018
               options[:airac].date.xmlschema,               # 2018-01-04
               aip_file

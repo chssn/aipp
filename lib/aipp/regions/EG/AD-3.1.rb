@@ -1,24 +1,24 @@
 module AIPP
-  module LF
+  module EG
 
     # Helipads
     class AD31 < AIP
 
-      include AIPP::LF::Helpers::Base
+      include AIPP::EG::Helpers::Base
       using AIXM::Refinements
 
       DEPENDS = %w(AD-2)
 
-      HOSTILITIES = {
-        'zone hostile habitée' => 'Zone hostile habitée / hostile populated area',
-        'zone hostile non habitée' => 'Zone hostile non habitée / hostile unpopulated area',
-        'zone non hostile' => 'Zone non hostile / non-hostile area'
-      }.freeze
+      #HOSTILITIES = {
+      #  'zone hostile habitée' => 'Zone hostile habitée / hostile populated area',
+      #  'zone hostile non habitée' => 'Zone hostile non habitée / hostile unpopulated area',
+      #  'zone non hostile' => 'Zone non hostile / non-hostile area'
+      #}.freeze
 
-      POSITIONINGS = {
-        'en terrasse' => 'En terrasse / on deck',
-        'en surface' => 'En surface / on ground'
-      }.freeze
+      #POSITIONINGS = {
+      #  'en terrasse' => 'En terrasse / on deck',
+      #  'en surface' => 'En surface / on ground'
+      #}.freeze
 
       DIMENSIONS_RE = /( diam.tre\s+\d+ | (?:\d[\s\d,.m]*x\s*){1,}[\s\d,.m]+ )/ix.freeze
 
@@ -33,7 +33,7 @@ module AIPP
             # Airport
             @airport = AIXM.airport(
               source: source(position: trs[0].line),
-              organisation: organisation_lf,   # TODO: not yet implemented
+              organisation: organisation_gb,   # TODO: not yet implemented
               id: options[:region],
               name: name,
               xy: xy_from(trs[1].css('td:nth-of-type(1)').text.cleanup)

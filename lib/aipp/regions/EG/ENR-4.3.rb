@@ -1,10 +1,10 @@
 module AIPP
-  module LF
+  module EG
 
     # Designated Points
     class ENR43 < AIP
 
-      include AIPP::LF::Helpers::Base
+      include AIPP::EG::Helpers::Base
 
       def parse
         prepare(html: read).css('tbody').each do |tbody|

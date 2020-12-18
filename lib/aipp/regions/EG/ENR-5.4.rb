@@ -1,10 +1,10 @@
 module AIPP
-  module LF
+  module EG
 
     # Obstacles
     class ENR54 < AIP
 
-      include AIPP::LF::Helpers::Base
+      include AIPP::EG::Helpers::Base
 
       # Obstacles to be ignored
       NAME_BLACKLIST = %w(10051 55050 51076 59000 72039 80088).freeze   # all duplicates

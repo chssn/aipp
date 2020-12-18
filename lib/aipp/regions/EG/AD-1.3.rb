@@ -1,31 +1,12 @@
 module AIPP
-  module LF
+  module EG
 
     # Aerodromes
     class AD13 < AIP
 
-      include AIPP::LF::Helpers::Base
+      include AIPP::EG::Helpers::Base
 
       DEPENDS = %w(AD-2)
-
-      # Map names of id-less airports to unofficial ids
-      ID_LESS_AIRPORTS = {
-        "ALBE" => 'LF9001',
-        "BEAUMONT DE LOMAGNE" => 'LF9002',
-        "BERDOUES" => 'LF9003',
-        "BOULOC" => 'LF9004',
-        "BUXEUIL ST REMY / CREUSE" => 'LF9005',
-        "CALVIAC" => 'LF9006',
-        "CAYLUS" => 'LF9007',
-        "CORBONOD" => 'LF9008',
-        "L'ISLE EN DODON" => 'LF9009',
-        "LACAVE LE FRAU" => 'LF9010',
-        "LUCON CHASNAIS" => 'LF9011',
-        "PEYRELEVADE" => 'LF9012',
-        "SAINT CYR LA CAMPAGNE" => 'LF9013',
-        "SEPTFONDS" => 'LF9014',
-        "TALMONT VENDEE AIR PARK" => 'LF9015'
-      }.freeze
 
       PURPOSES = {
         "s" => :scheduled,
@@ -63,7 +44,7 @@ module AIPP
         id = tds[0].text.strip.blank_to_nil || ID_LESS_AIRPORTS.fetch(tds[1].text.strip)
         AIXM.airport(
           source: source(position: tr.line),
-          organisation: organisation_lf,   # TODO: not yet implemented
+          organisation: organisation_gb,   # TODO: not yet implemented
           id: id,
           name: tds[1].text.strip,
           xy: xy_from(tds[3].text)
@@ -100,8 +81,8 @@ module AIPP
               c.purpose = PURPOSES[raw_purpose]
             end
           end
-          l.remarks = "Usage restreint (voir VAC) / restricted use (see VAC)" if raw_limitation.match?(/usa.+restr/)
-          l.remarks = "Propriété privée / privately owned" if raw_limitation.match?(/priv/)
+          l.remarks = "Restricted use (see VAC)" if raw_limitation.match?(/usa.+restr/)
+          l.remarks = "Privately owned" if raw_limitation.match?(/priv/)
         end
       end
 
