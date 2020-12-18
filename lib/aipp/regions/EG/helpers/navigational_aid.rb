@@ -4,7 +4,7 @@ module AIPP
       module NavigationalAid
 
         def navigational_aid_from(tds, source:, sections:)
-          NavigationalAid.new(tds, source: source, sections: sections, organisation: cache.organisation_lf).build
+          NavigationalAid.new(tds, source: source, sections: sections, organisation: cache.organisation_gb).build
         end
 
         class NavigationalAid
