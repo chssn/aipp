@@ -1,5 +1,5 @@
 module AIPP
-  module LF
+  module EG
     module Helpers
       module URL
 
