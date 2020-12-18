@@ -8,7 +8,7 @@ module AIPP
         end
 
         class NavigationalAid
-          include AIPP::LF::Helpers::Base
+          include AIPP::EG::Helpers::Base
 
           # Map atypical navigational aid denominations
           NAVIGATIONAL_AIDS = {
